@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://44j7ud1utkgq"]
+
+[ext_resource type="Script" uid="uid://qtxrnq2uf434" path="res://scripts/mushroom.gd" id="1_0bdi0"]
+[ext_resource type="Texture2D" uid="uid://cpha121o1c0f1" path="res://assets/sprites/world_tileset.png" id="1_b0s10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bdi0"]
+size = Vector2(16, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxrkd"]
+atlas = ExtResource("1_b0s10")
+region = Rect2(112, 96, 16, 16)
+
+[node name="Mushroom" type="Area2D" unique_id=2013711177]
+position = Vector2(-1, 0)
+collision_mask = 2
+script = ExtResource("1_0bdi0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1917682084]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_0bdi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=391504214]
+texture = SubResource("AtlasTexture_qxrkd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

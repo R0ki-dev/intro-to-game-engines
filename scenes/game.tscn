@@ -175,6 +175,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
+normal = Vector2(0.033878844, -0.99942595)
 
 [sub_resource type="Animation" id="Animation_lnu2h"]
 length = 0.001
@@ -253,6 +254,7 @@ position_smoothing_enabled = true
 position = Vector2(221, 149)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=2138544525]
+position = Vector2(2, -77)
 shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Coins" type="Node" parent="." unique_id=872403042]
