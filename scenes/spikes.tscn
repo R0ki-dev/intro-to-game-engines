@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://x4lh4ca62ri5"]
+
+[ext_resource type="Texture2D" uid="uid://dhq83vgh0j74o" path="res://assets/tilesets/props.png" id="2_xbcdo"]
+[ext_resource type="PackedScene" uid="uid://8d8pt0fltamb" path="res://scenes/killzone.tscn" id="3_0vi4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l8pv"]
+size = Vector2(14, 8.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bflj7"]
+atlas = ExtResource("2_xbcdo")
+region = Rect2(144, 199, 15, 9)
+
+[node name="Spikes" type="Node2D" unique_id=2041471080]
+
+[node name="Killzone" parent="." unique_id=189371376 instance=ExtResource("3_0vi4p")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=248695297]
+position = Vector2(0, -3.75)
+shape = SubResource("RectangleShape2D_0l8pv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1181803908]
+position = Vector2(0, -4)
+texture = SubResource("AtlasTexture_bflj7")

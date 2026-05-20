@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hdbovxg7xyne"]
+
+[ext_resource type="Texture2D" uid="uid://dhq83vgh0j74o" path="res://assets/tilesets/props.png" id="1_cpty0"]
+[ext_resource type="Script" uid="uid://gc7bwcbnv08g" path="res://scripts/goddess_statue.gd" id="2_2yin2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yin2"]
+atlas = ExtResource("1_cpty0")
+region = Rect2(208, 144, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpty0"]
+
+[node name="GoddessStatue" type="Node2D" unique_id=893985635]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1400286574]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1369104160]
+position = Vector2(0, -16)
+texture = SubResource("AtlasTexture_2yin2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1969374105]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_cpty0")
+script = ExtResource("2_2yin2")

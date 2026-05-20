@@ -4,8 +4,9 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 const DASH_MULTI = 5
-var double_jump : bool = false
 var can_dash : bool = false
+const Max_jumps : int = 2
+var Cur_jumps : int = 0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var double_jump_audio_stream_player_2d: AudioStreamPlayer2D = $DoubleJump_AudioStreamPlayer2D
@@ -13,20 +14,19 @@ var can_dash : bool = false
 
 
 func _physics_process(delta: float) -> void:
-	if is_on_floor() and double_jump == true:
-		double_jump = false
+	if is_on_floor():
+		Cur_jumps = 0
+		can_dash = false
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if is_on_floor():
-		can_dash = false
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			jump()
-		elif double_jump == false:
-			double_jump = true
-			jump()
+		Cur_jumps = Cur_jumps + 1 
+		if Cur_jumps > Max_jumps:
+			return
+		jump()
+		print(Cur_jumps)
 			
 	if Input.is_action_just_pressed("dash"):
 		if can_dash and is_on_floor() == false:
@@ -56,10 +56,10 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func jump(multi : float = 1):
+func jump(_multi : float = 1):
 	velocity.y = JUMP_VELOCITY
 	can_dash = true
-	if double_jump == false:
+	if Cur_jumps == 1:
 		jump_audio_stream_player_2d.play()
 	else:
 		double_jump_audio_stream_player_2d.play()

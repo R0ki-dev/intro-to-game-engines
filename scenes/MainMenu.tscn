@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://byjn54xpguml3"]
+
+[ext_resource type="Script" uid="uid://3llljusykdi6" path="res://scripts/main_menu.gd" id="1_yqorp"]
+[ext_resource type="AudioStream" uid="uid://cacdja8w5reu8" path="res://assets/music/Snowfall (Looped ver.).ogg" id="2_0ykhv"]
+[ext_resource type="FontFile" uid="uid://dexalv8afmxce" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_2wh52"]
+
+[node name="MainMenu" type="Node2D" unique_id=1432103819]
+script = ExtResource("1_yqorp")
+
+[node name="Start" type="Button" parent="." unique_id=1957525584]
+offset_left = -12.0
+offset_top = -41.0
+offset_right = 1160.0
+offset_bottom = 672.0
+flat = true
+
+[node name="Label" type="Label" parent="." unique_id=730028082]
+offset_left = 501.0
+offset_top = 518.0
+offset_right = 686.0
+offset_bottom = 541.0
+text = "Click anywhere to begin"
+
+[node name="MainMenu_Music_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=392105318]
+stream = ExtResource("2_0ykhv")
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.0
+panning_strength = 0.0
+
+[node name="Label2" type="Label" parent="." unique_id=1768797564]
+offset_left = 501.0
+offset_top = 242.0
+offset_right = 686.0
+offset_bottom = 265.0
+theme_override_fonts/font = ExtResource("3_2wh52")
+theme_override_font_sizes/font_size = 50
+text = ":D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
