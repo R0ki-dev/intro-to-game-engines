@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bul1hiq5s6pt6"]
+
+[ext_resource type="FontFile" uid="uid://dexalv8afmxce" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_qpvh6"]
+
+[node name="Hud" type="Node" unique_id=1649458837]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1900812043]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1446783371]
+z_index = 99
+offset_left = 40.0
+offset_top = 563.0
+offset_right = 234.0
+offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("1_qpvh6")
+text = "SPACE TO JUMP
+SHIFT TO DASH"

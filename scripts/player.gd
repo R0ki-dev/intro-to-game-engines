@@ -16,6 +16,8 @@ var cur_dashes : int = 0
 @onready var double_jump_audio_stream_player_2d: AudioStreamPlayer2D = $DoubleJump_AudioStreamPlayer2D
 @onready var jump_audio_stream_player_2d: AudioStreamPlayer2D = $Jump_AudioStreamPlayer2D
 @onready var dash_audio_stream_player_2d: AudioStreamPlayer2D = $Dash_AudioStreamPlayer2D
+@onready var player: CharacterBody2D = $"."
+@onready var hitbox: CollisionShape2D = $Area2D/Hitbox
 
 
 func _physics_process(delta: float) -> void:
@@ -74,6 +76,7 @@ func dash():
 		elif cur_dashes >= max_dashes:
 			return
 		dash_vel = dash_const
+		hitbox.set_deferred("disabled", false)
 		if tween:
 			tween.stop()
 		tween = create_tween()

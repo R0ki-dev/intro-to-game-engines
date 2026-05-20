@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bvkm77afxag7h"]
+
+[ext_resource type="Texture2D" uid="uid://cpha121o1c0f1" path="res://assets/sprites/world_tileset.png" id="1_2hko0"]
+[ext_resource type="Script" uid="uid://htyq63v8gwaa" path="res://scripts/hurtbox.gd" id="2_uybbf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hko0"]
+size = Vector2(18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uybbf"]
+atlas = ExtResource("1_2hko0")
+region = Rect2(128, 0, 16, 16)
+
+[node name="BreakableBlock" type="Area2D" unique_id=2141373088]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_uybbf")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=580204931]
+shape = SubResource("RectangleShape2D_2hko0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=769584511]
+
+[node name="Collider" type="CollisionShape2D" parent="StaticBody2D" unique_id=1211253306]
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_2hko0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1039876673]
+texture = SubResource("AtlasTexture_uybbf")
